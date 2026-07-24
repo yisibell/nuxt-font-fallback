@@ -1,4 +1,5 @@
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+import regexpPlugin from 'eslint-plugin-regexp'
 
 export default createConfigForNuxt({
   features: {
@@ -8,6 +9,9 @@ export default createConfigForNuxt({
   },
 },
 {
+  plugins: {
+    regexp: regexpPlugin,
+  },
   rules: {
     'vue/multi-word-component-names': 'off',
     '@typescript-eslint/ban-types': 'off',
