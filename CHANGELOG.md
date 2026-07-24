@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v1.0.1...v1.0.2)
+
+### 🏡 Chore
+
+- Rename pkg ([12e55e3](https://github.com/yisibell/nuxt-font-fallback/commit/12e55e3))
+
+### ❤️ Contributors
+
+- Elenh ([@yisibell](http://github.com/yisibell))
+
 ## v1.0.1
 
 
