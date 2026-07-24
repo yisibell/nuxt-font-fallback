@@ -23,14 +23,14 @@ export interface ModuleOptions {
 
   /**
    * Output CSS filename in the Nuxt build directory.
-   * @default 'nuxt-font-metrics.css'
+   * @default 'nuxt-font-fallback.css'
    */
   cssFilename?: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt-font-metrics',
+    name: 'nuxt-font-fallback',
     configKey: 'fontFallback',
   },
   defaults: {
