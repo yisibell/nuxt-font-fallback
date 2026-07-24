@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-font-metrics",
+  "name": "nuxt-font-fallback",
   "version": "1.0.1",
   "description": "Automatic font metric fallback for Nuxt. Reads font files, computes metric overrides, and generates CSS @font-face declarations to eliminate CLS from web font loading.",
   "keywords": [
@@ -11,9 +11,9 @@
     "nuxt",
     "nuxt-module"
   ],
-  "homepage": "https://github.com/yisibell/nuxt-font-metrics",
+  "homepage": "https://github.com/yisibell/nuxt-font-fallback",
   "bugs": {
-    "url": "https://github.com/yisibell/nuxt-font-metrics/issues"
+    "url": "https://github.com/yisibell/nuxt-font-fallback/issues"
   },
   "license": "MIT",
   "author": {

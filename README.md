@@ -1,7 +1,7 @@
-# nuxt-font-metrics
+# nuxt-font-fallback
 
-[![npm version](https://img.shields.io/npm/v/nuxt-font-metrics.svg)](https://npmjs.com/package/nuxt-font-metrics)
-[![license](https://img.shields.io/npm/l/nuxt-font-metrics.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/nuxt-font-fallback.svg)](https://npmjs.com/package/nuxt-font-fallback)
+[![license](https://img.shields.io/npm/l/nuxt-font-fallback.svg)](./LICENSE)
 
 Automatic font metric fallback for [Nuxt](https://nuxt.com). Powered by [fontaine](https://github.com/unjs/fontaine) + [capsize](https://github.com/seek-oss/capsize).
 
@@ -12,14 +12,14 @@ Custom web fonts cause Cumulative Layout Shift (CLS) while loading. This module 
 ## Quick Start
 
 ```bash
-npm install nuxt-font-metrics
+npm install nuxt-font-fallback
 ```
 
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
   modules: [
-    ['nuxt-font-metrics', {
+    ['nuxt-font-fallback', {
       fonts: [
         { name: 'GothamOverride', src: 'public/fonts/Gotham-Book.otf' },
       ],
@@ -42,7 +42,7 @@ Then reference the override family in your CSS:
 |---|---|---|---|
 | `fonts` | `FontEntry[]` | `[]` | Custom fonts to generate fallbacks for |
 | `fallbackFonts` | `string[]` | `['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif']` | System font stack; first is used for metrics |
-| `cssFilename` | `string` | `'nuxt-font-metrics.css'` | Output CSS filename |
+| `cssFilename` | `string` | `'nuxt-font-fallback.css'` | Output CSS filename |
 
 ### `FontEntry`
 
