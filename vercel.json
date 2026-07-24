@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm prepack && pnpm dev:build",
-  "outputDirectory": "playground/.vercel/output/static",
+  "outputDirectory": "playground/output",
   "installCommand": "pnpm install",
   "framework": null
 }
