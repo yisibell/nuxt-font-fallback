@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm dev:prepare && pnpm prepack && nuxi generate playground",
-  "outputDirectory": "playground/.output/public",
+  "outputDirectory": "playground/.vercel/output/static",
   "installCommand": "pnpm install",
   "framework": null
 }
