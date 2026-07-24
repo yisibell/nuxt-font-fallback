@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.1.1
+
+[compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v1.1.0...v1.1.1)
+
+### 🏡 Chore
+
+- Update docs ([b150176](https://github.com/yisibell/nuxt-font-fallback/commit/b150176))
+
+### ❤️ Contributors
+
+- Elenh ([@yisibell](http://github.com/yisibell))
+
 ## v1.1.0
 
 [compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v1.0.2...v1.1.0)
