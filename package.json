@@ -1,0 +1,75 @@
+{
+  "name": "nuxt-font-metrics",
+  "version": "1.0.0",
+  "description": "Automatic font metric fallback for Nuxt. Reads font files, computes metric overrides, and generates CSS @font-face declarations to eliminate CLS from web font loading.",
+  "keywords": [
+    "capsize",
+    "cls",
+    "font-fallback",
+    "font-metrics",
+    "fontaine",
+    "nuxt",
+    "nuxt-module"
+  ],
+  "homepage": "https://github.com/yisibell/nuxt-font-metrics",
+  "bugs": {
+    "url": "https://github.com/yisibell/nuxt-font-metrics/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "elenh",
+    "email": "yisiwings@163.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "default": "./dist/module.mjs"
+    },
+    "./*": [
+      "./*",
+      "./*.d.ts"
+    ]
+  },
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "cross-env NODE_OPTIONS=--trace-deprecation nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release:lint:test": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.16.0",
+    "fontaine": "0.6.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "2.0.0-beta.3",
+    "@nuxt/eslint-config": "^0.7.5",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "^3.15.2",
+    "@nuxt/test-utils": "^3.15.4",
+    "@types/fs-extra": "^11.0.4",
+    "@types/spritesmith": "^3.4.5",
+    "changelogen": "~0.5.7",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-format": "^1.0.1",
+    "nuxt": "^3.16.0",
+    "prettier": "^3.4.2",
+    "sass": "1.101.7",
+    "typescript": "~5.6.2",
+    "vitest": "^3.0.3",
+    "vue-tsc": "^2.2.0"
+  }
+}
