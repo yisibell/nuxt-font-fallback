@@ -1,8 +1,7 @@
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { writeFile } from 'node:fs/promises'
 import { readMetrics, generateFontFace, getMetricsForFamily } from 'fontaine'
-import { defineNuxtModule } from '@nuxt/kit'
+import { defineNuxtModule, addTemplate } from '@nuxt/kit'
 
 export interface FontEntry {
   name: string
@@ -32,55 +31,55 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-font-metrics',
-    configKey: 'fontMetrics',
+    configKey: 'fontFallback',
   },
   defaults: {
     fonts: [],
     fallbackFonts: ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
-    cssFilename: 'nuxt-font-metrics.css',
+    cssFilename: 'nuxt-font-fallback.css',
   },
   setup(options, nuxt) {
-    const { fonts = [], fallbackFonts = ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'], cssFilename = 'nuxt-font-metrics.css' } = options
-    const srcDir = nuxt.options.srcDir
+    const {
+      fonts = [],
+      fallbackFonts = ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
+      cssFilename = 'nuxt-font-fallback.css',
+    } = options
 
-    if (!fonts.length) return
-    if (!fallbackFonts.length) return
+    if (!fonts.length || !fallbackFonts.length) return
 
-    async function generate() {
-      const fallbackMetrics = await getMetricsForFamily(fallbackFonts[0])
+    addTemplate({
+      filename: cssFilename,
+      write: true,
+      async getContents() {
+        const fallbackMetrics = await getMetricsForFamily(fallbackFonts[0])
 
-      const results = await Promise.all(
-        fonts.map(async (f) => {
-          const filePath = path.resolve(srcDir, f.src)
-          const fileUrl = pathToFileURL(filePath).href
-          try {
-            const metrics = await readMetrics(fileUrl)
-            if (!metrics) {
-              console.error('[nuxt-font-metrics] NULL metrics:', f.name)
-              return `/* FAIL: ${f.name} - readMetrics returned null */`
+        const results = await Promise.all(
+          fonts.map(async (f) => {
+            const filePath = path.resolve(nuxt.options.srcDir, f.src)
+            const fileUrl = pathToFileURL(filePath).href
+            try {
+              const metrics = await readMetrics(fileUrl)
+              if (!metrics) {
+                return `/* FAIL: ${f.name} - readMetrics returned null */`
+              }
+              const css = generateFontFace(metrics, {
+                name: f.name,
+                font: fallbackFonts[0],
+                metrics: fallbackMetrics ?? undefined,
+              })
+              return css.replace(
+                `local(${JSON.stringify(fallbackFonts[0])})`,
+                fallbackFonts.map(fb => `local(${JSON.stringify(fb)})`).join(', '),
+              )
             }
-            const css = generateFontFace(metrics, {
-              name: f.name,
-              font: fallbackFonts[0],
-              metrics: fallbackMetrics ?? undefined,
-            })
-            return css.replace(
-              `local(${JSON.stringify(fallbackFonts[0])})`,
-              fallbackFonts.map(fb => `local(${JSON.stringify(fb)})`).join(', '),
-            )
-          }
-          catch (err: any) {
-            console.error('[nuxt-font-metrics] FAIL:', f.name, err.message)
-            return `/* FAIL: ${f.name} - ${err.message} */`
-          }
-        }),
-      )
-      const outputPath = path.resolve(nuxt.options.buildDir, cssFilename)
-      await writeFile(outputPath, results.join('\n'), 'utf-8')
-      console.log('[nuxt-font-metrics] Written to:', outputPath)
-    }
-
-    nuxt.hook('build:before', generate)
+            catch (err: any) {
+              return `/* FAIL: ${f.name} - ${err.message} */`
+            }
+          }),
+        )
+        return results.join('\n')
+      },
+    })
 
     nuxt.options.css.unshift(path.resolve(nuxt.options.buildDir, cssFilename))
   },

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm run prepack && nuxi build playground",
+  "outputDirectory": "playground/.output/public",
+  "installCommand": "pnpm install",
+  "framework": null
+}

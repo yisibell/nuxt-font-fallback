@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-12-30',
 
-  fontMetrics: {
+  fontFallback: {
     fonts: [
       { name: 'GothamBookOverride', src: 'public/fonts/gotham/Gotham-Book.otf' },
       { name: 'GothamMediumOverride', src: 'public/fonts/gotham/Gotham-Medium.otf' },
