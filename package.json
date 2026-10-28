@@ -1,6 +1,6 @@
 {
   "name": "nuxt-font-fallback",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "Automatic font metric fallback for Nuxt. Reads font files, computes metric overrides, and generates CSS @font-face declarations to eliminate CLS from web font loading.",
   "keywords": [
     "capsize",
@@ -38,9 +38,9 @@
   },
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "dev": "cross-env NODE_OPTIONS=--trace-deprecation nuxi dev playground",
+    "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "release:lint:test": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
@@ -48,14 +48,14 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.16.0",
     "fontaine": "0.6.0"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "1.16.0",
     "@nuxt/fonts": "0.11.4",
+    "@nuxt/kit": "3.16.0",
     "@nuxt/module-builder": "^1.0.3",
-    "@nuxt/schema": "^3.16.0",
+    "@nuxt/schema": "3.16.0",
     "@nuxt/test-utils": "^3.15.4",
     "changelogen": "~0.5.7",
     "cross-env": "^7.0.3",
@@ -63,11 +63,16 @@
     "eslint": "9.39.4",
     "eslint-plugin-format": "2.0.1",
     "eslint-plugin-regexp": "3.1.1",
-    "nuxt": "^3.16.0",
+    "nuxt": "3.16.0",
     "prettier": "^3.4.2",
     "sass": "1.101.7",
     "typescript": "^5.8.3",
     "vitest": "^3.0.3",
     "vue-tsc": "^2.2.0"
+  },
+  "peerDependencies": {
+    "nuxt": ">=3.16.0 <4.5",
+    "@nuxt/kit": ">=3.16.0 <4.5",
+    "@nuxt/schema": ">=3.16.0 <4.5"
   }
 }
