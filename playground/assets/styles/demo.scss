@@ -1,0 +1,15 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #fafafa;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.demo { min-height: 100vh; }
+
+.showcase { display: flex; flex-direction: column; gap: 1.25rem; max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+.override-off { --jjs-font-family-base: GothamBook; --jjs-font-family-accent: GothamMedium; --jjs-font-family-accent-bold: GothamBold; --jjs-font-family-title: BlackerProDisplayRegular; --jjs-font-family-title-thin: BlackerProDisplayLight; }
+
