@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v2.1.0
+
+[compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v2.0.0...v2.1.0)
+
+### 🚀 Enhancements
+
+- Optimize code and update demos ([d3b6e5e](https://github.com/yisibell/nuxt-font-fallback/commit/d3b6e5e))
+- Upgrade `fontaine` to v1 ([7f723be](https://github.com/yisibell/nuxt-font-fallback/commit/7f723be))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.0.0
 
 [compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v1.1.2...v2.0.0)
