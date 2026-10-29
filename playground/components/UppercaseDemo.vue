@@ -30,8 +30,8 @@
       </div>
 
       <div>
-        <span class="uppercase-column-label">Uppercase fallback</span>
-        <p class="uppercase-sample uppercase-sample-base-upper">
+        <span class="uppercase-column-label">Uppercase text</span>
+        <p class="uppercase-sample uppercase-sample-uppercase">
           <span
             v-for="word in words"
             :key="`upper-${word}`"
@@ -174,15 +174,15 @@ function toggleBase() {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.01em;
-  text-transform: uppercase;
 }
 
 .uppercase-sample-base {
   font-family: var(--jjs-font-family-base);
 }
 
-.uppercase-sample-base-upper {
-  font-family: var(--jjs-font-family-base--upper);
+.uppercase-sample-uppercase {
+  font-family: var(--jjs-font-family-base);
+  text-transform: uppercase;
 }
 
 @media (max-width: 640px) {

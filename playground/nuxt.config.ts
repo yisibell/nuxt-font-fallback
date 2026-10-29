@@ -18,11 +18,26 @@ export default defineNuxtConfig({
 
   fontFallback: {
     fonts: [
-      { name: 'GothamBookOverride', src: 'public/fonts/gotham/Gotham-Book.otf' },
-      { name: 'GothamMediumOverride', src: 'public/fonts/gotham/Gotham-Medium.otf' },
-      { name: 'GothamBoldOverride', src: 'public/fonts/gotham/Gotham-Bold.otf' },
-      { name: 'BlackerProDisplayRegularOverride', src: 'public/fonts/blacker-pro/BlackerProDisplayRegular.otf' },
-      { name: 'BlackerProDisplayLightOverride', src: 'public/fonts/blacker-pro/BlackerProDisplayLight.otf' },
+      {
+        name: 'GothamBookOverride',
+        src: 'public/fonts/gotham/Gotham-Book.otf',
+      },
+      {
+        name: 'GothamMediumOverride',
+        src: 'public/fonts/gotham/Gotham-Medium.otf',
+      },
+      {
+        name: 'GothamBoldOverride',
+        src: 'public/fonts/gotham/Gotham-Bold.otf',
+      },
+      {
+        name: 'BlackerProDisplayRegularOverride',
+        src: 'public/fonts/blacker-pro/BlackerProDisplayRegular.otf',
+      },
+      {
+        name: 'BlackerProDisplayLightOverride',
+        src: 'public/fonts/blacker-pro/BlackerProDisplayLight.otf',
+      },
     ],
   },
 

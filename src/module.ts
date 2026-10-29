@@ -21,18 +21,20 @@ export default defineNuxtModule<ModuleOptions>({
       cssFilename,
     } = options
 
-    if (!fonts?.length || !fallbackFonts?.length || !cssFilename) return
+    if (!fonts?.length || !fallbackFonts?.length) return
 
-    const template = addTemplate({
-      filename: cssFilename,
-      write: true,
-      getContents: () => generateFontFallbackCss({
-        fonts,
-        fallbackFonts,
-        srcDir: nuxt.options.srcDir,
-      }),
-    })
+    if (cssFilename) {
+      const template = addTemplate({
+        filename: cssFilename,
+        write: true,
+        getContents: () => generateFontFallbackCss({
+          fonts,
+          fallbackFonts,
+          srcDir: nuxt.options.srcDir,
+        }),
+      })
 
-    nuxt.options.css.unshift(`#build/${template.filename}`)
+      nuxt.options.css.unshift(`#build/${template.filename}`)
+    }
   },
 })
