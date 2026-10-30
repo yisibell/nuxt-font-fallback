@@ -1,10 +1,18 @@
 
 
 :root {
-  --jjs-font-family-base: GothamBook, GothamBookOverride;
-  --jjs-font-family-accent: GothamMedium, GothamMediumOverride;
-  --jjs-font-family-accent-bold: GothamBold, GothamBoldOverride;
-  --jjs-font-family-title: BlackerProDisplayRegular, BlackerProDisplayRegularOverride;
-  --jjs-font-family-title-thin: BlackerProDisplayLight, BlackerProDisplayLightOverride;
+  --jjs-font-family-base: GothamBook, GothamBookOverride, sans-serif;
+  --jjs-font-family-accent: GothamMedium, GothamMediumOverride, sans-serif;
+  --jjs-font-family-accent-bold: GothamBold, GothamBoldOverride, sans-serif;
+  --jjs-font-family-title: BlackerProDisplayRegular, BlackerProDisplayRegularOverride, sans-serif;
+  --jjs-font-family-title-thin: BlackerProDisplayLight, BlackerProDisplayLightOverride, sans-serif;
+}
+
+:root {
+  --jjs-font-family-base-upper: GothamBook, GothamBookOverride, sans-serif;
+  --jjs-font-family-accent-upper: GothamMedium, GothamMediumOverride, sans-serif;
+  --jjs-font-family-accent-bold-upper: GothamBold, GothamBoldOverride, sans-serif;
+  --jjs-font-family-title-upper: BlackerProDisplayRegular, BlackerProDisplayRegularOverride, sans-serif;
+  --jjs-font-family-title-thin-upper: BlackerProDisplayLight, BlackerProDisplayLightOverride, sans-serif;
 }
 

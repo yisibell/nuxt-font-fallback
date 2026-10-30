@@ -11,7 +11,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     fonts: [],
-    fallbackFonts: ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
+    fallbackFonts: ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto'],
     cssFilename: 'nuxt-font-fallback.css',
   },
   setup(options, nuxt) {

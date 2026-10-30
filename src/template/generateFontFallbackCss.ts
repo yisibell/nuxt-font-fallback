@@ -12,7 +12,7 @@ export interface GenerateFontFallbackCssOptions {
 
   /**
    * Local system font stack used by the generated fallback faces.
-   * The first entry supplies the metrics used for `size-adjust` calculations.
+   * Each entry with available Capsize metrics receives its own generated face.
    */
   fallbackFonts: string[]
 
@@ -23,9 +23,9 @@ export interface GenerateFontFallbackCssOptions {
 /**
  * Reads custom font metrics and generates the CSS fallback declarations.
  *
- * Each custom font produces one `@font-face` rule. Fontaine calculates the
- * metric overrides from the first fallback font, while all configured fallback
- * families are included in the generated `local(...)` source list.
+ * Each custom font produces one `@font-face` rule per configured fallback
+ * family. This gives every local font its own metric overrides instead of
+ * applying the first fallback's metrics to the whole source stack.
  *
  * Font-level failures are returned as CSS comments so one unreadable font does
  * not prevent the remaining fallback declarations from being generated.
@@ -34,17 +34,16 @@ export interface GenerateFontFallbackCssOptions {
  * @param options.fonts Custom font entries to process.
  * @param options.fallbackFonts Fallback font family names.
  * @param options.srcDir Absolute Nuxt source directory.
- * @returns Generated CSS containing one fallback declaration per custom font.
+ * @returns Generated CSS containing one fallback declaration per available
+ * fallback family and custom font.
  */
 export async function generateFontFallbackCss({
   fonts,
   fallbackFonts,
   srcDir,
 }: GenerateFontFallbackCssOptions) {
-  const fallbackMetrics = await getMetricsForFamily(fallbackFonts[0])
-
   const results = await Promise.all(
-    fonts.map(async (font) => {
+    fonts.map(async (font, index) => {
       const filePath = path.resolve(srcDir, font.src)
       const fileUrl = pathToFileURL(filePath).href
 
@@ -54,16 +53,22 @@ export async function generateFontFallbackCss({
           return `/* FAIL: ${font.name} - readMetrics returned null */`
         }
 
-        const css = generateFontFace(metrics, {
-          name: font.name,
-          font: fallbackFonts[0],
-          metrics: fallbackMetrics ?? undefined,
-        })
+        const faces = await Promise.all(
+          [...fallbackFonts].reverse().map(async (fallbackFamily) => {
+            const fallbackMetrics = await getMetricsForFamily(fallbackFamily)
+            if (!fallbackMetrics) {
+              return `/* SKIP: ${font.name} - no Capsize metrics for ${fallbackFamily} */`
+            }
 
-        return css.replace(
-          `local(${JSON.stringify(fallbackFonts[0])})`,
-          fallbackFonts.map(fallback => `local(${JSON.stringify(fallback)})`).join(', '),
+            return generateFontFace(metrics, {
+              name: font.name,
+              font: fallbackFamily,
+              metrics: fallbackMetrics,
+            })
+          }),
         )
+
+        return `/* [${index + 1}] Fallback faces for: ${font.name} */\n${faces.join('\n')}`
       }
       catch (err: any) {
         return `/* FAIL: ${font.name} - ${err.message} */`
