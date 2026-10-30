@@ -1,6 +1,6 @@
 {
   "name": "nuxt-font-fallback",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Automatic font metric fallback for Nuxt. Reads font files, computes metric overrides, and generates CSS @font-face declarations to eliminate CLS from web font loading.",
   "keywords": [
     "capsize",

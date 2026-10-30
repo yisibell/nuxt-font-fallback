@@ -24,7 +24,7 @@
           <span
             v-for="word in words"
             :key="`base-${word}`"
-            class="word-tag"
+            class="font-fallback-demo-tag"
           >{{ word }}</span>
         </p>
       </div>
@@ -35,7 +35,7 @@
           <span
             v-for="word in words"
             :key="`upper-${word}`"
-            class="word-tag"
+            class="font-fallback-demo-tag"
           >{{ word }}</span>
         </p>
       </div>
@@ -163,7 +163,7 @@ function toggleBase() {
   line-height: 1.35;
 }
 
-.word-tag {
+.font-fallback-demo-tag {
   display: inline-block;
   margin: 0 0.35rem 0.35rem 0;
   padding: 0.45rem 0.7rem;
@@ -181,6 +181,7 @@ function toggleBase() {
 }
 
 .uppercase-sample-uppercase {
+  // font-family: var(--jjs-font-family-base-upper);
   font-family: var(--jjs-font-family-base);
   text-transform: uppercase;
 }

@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.1.1
+
+[compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v2.1.0...v2.1.1)
+
+### 🩹 Fixes
+
+- Fallback font-face generation ([cde5341](https://github.com/yisibell/nuxt-font-fallback/commit/cde5341))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.0
 
 [compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v2.0.0...v2.1.0)

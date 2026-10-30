@@ -58,9 +58,9 @@ interface FontEntry {
 ## How It Works
 
 1. Reads each font file via `fontaine`'s `readMetrics`
-2. Retrieves the first fallback font's metrics through `fontaine`
+2. Retrieves metrics for each configured fallback font through `fontaine`
 3. Computes `size-adjust`, `ascent-override`, `descent-override`
-4. Generates `@font-face` declarations with multi-platform `src: local(...)` chains
+4. Generates one metric-matched `@font-face` declaration for each local fallback family
 5. Injects the CSS globally before other styles
 
 ## Development
