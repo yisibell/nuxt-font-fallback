@@ -17,6 +17,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-12-30',
 
   fontFallback: {
+    balancedFallback: true,
+    balancedWidthWeight: [0.27, 0.82],
     fonts: [
       {
         name: 'GothamBookOverride',
