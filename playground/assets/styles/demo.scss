@@ -11,5 +11,21 @@ body {
 
 .showcase { display: flex; flex-direction: column; gap: 1.25rem; max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 
-.override-off { --jjs-font-family-base: GothamBook; --jjs-font-family-accent: GothamMedium; --jjs-font-family-accent-bold: GothamBold; --jjs-font-family-title: BlackerProDisplayRegular; --jjs-font-family-title-thin: BlackerProDisplayLight; }
+.override-off {
+  --jjs-font-family-base: GothamBook, sans-serif;
+  --jjs-font-family-accent: GothamMedium, sans-serif;
+  --jjs-font-family-accent-bold: GothamBold, sans-serif;
+  --jjs-font-family-title: BlackerProDisplayRegular, sans-serif;
+  --jjs-font-family-title-thin: BlackerProDisplayLight, sans-serif;
+  --jjs-font-family-base-2: GothamBook, sans-serif;
+  --jjs-font-family-accent-2: GothamMedium, sans-serif;
+  --jjs-font-family-accent-bold-2: GothamBold, sans-serif;
+  --jjs-font-family-title-2: BlackerProDisplayRegular, sans-serif;
+  --jjs-font-family-title-thin-2: BlackerProDisplayLight, sans-serif;
+  --jjs-font-family-base-upper: GothamBook, sans-serif;
+  --jjs-font-family-accent-upper: GothamMedium, sans-serif;
+  --jjs-font-family-accent-bold-upper: GothamBold, sans-serif;
+  --jjs-font-family-title-upper: BlackerProDisplayRegular, sans-serif;
+  --jjs-font-family-title-thin-upper: BlackerProDisplayLight, sans-serif;
+}
 

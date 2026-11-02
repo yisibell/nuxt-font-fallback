@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.2.0
+
+[compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v2.1.1...v2.2.0)
+
+### 🚀 Enhancements
+
+- Supports `balancedFallback` config ([3bf2463](https://github.com/yisibell/nuxt-font-fallback/commit/3bf2463))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.1
 
 [compare changes](https://github.com/yisibell/nuxt-font-fallback/compare/v2.1.0...v2.1.1)

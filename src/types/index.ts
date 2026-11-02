@@ -25,9 +25,9 @@ export interface ModuleOptions {
   fonts?: FontEntry[]
 
   /**
-   * System font stack used by generated fallback faces. The first font is used
-   * for metric calculation and the complete list is emitted as local sources.
-   * @default ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif']
+   * Local font families in priority order. Each family with available metrics
+   * receives a separate fallback face with its own local sources and overrides.
+   * @default ['Arial', 'Helvetica Neue', 'Helvetica', 'Roboto']
    */
   fallbackFonts?: string[]
 
@@ -36,4 +36,19 @@ export interface ModuleOptions {
    * @default 'nuxt-font-fallback.css'
    */
   cssFilename?: string
+
+  /** Generate the standard average-width fallback CSS. @default true */
+  normalFallback?: boolean
+
+  /**
+   * Generate an additional CSS file with balanced fallback faces. Each family
+   * name appends `Balanced` to the corresponding configured font name. The
+   * scale combines average-width and x-height matching.
+   * Faces missing the required metrics are skipped.
+   * @default false
+   */
+  balancedFallback?: boolean
+
+  /** One weight or an array of weights between 0 and 1. @default 0.82 */
+  balancedWidthWeight?: number | number[]
 }

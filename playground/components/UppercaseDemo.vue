@@ -177,12 +177,12 @@ function toggleBase() {
 }
 
 .uppercase-sample-base {
-  font-family: var(--jjs-font-family-base);
+  // font-family: var(--jjs-font-family-base);
+  font-family: var(--jjs-font-family-base-2);
 }
 
 .uppercase-sample-uppercase {
-  // font-family: var(--jjs-font-family-base-upper);
-  font-family: var(--jjs-font-family-base);
+  font-family: var(--jjs-font-family-base-upper);
   text-transform: uppercase;
 }
 
